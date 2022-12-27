@@ -1,5 +1,7 @@
 package com.prowings.beans;
 
+import java.util.Properties;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -14,11 +16,11 @@ public class TestContainer {
 		Student s1 = (Student) ctx.getBean("std1");
 		
 		System.out.println(s1);
-
-		Student s2= (Student) ctx.getBean("std2");
 		
-		System.out.println(s2);
-
+		
+		Properties myProp = ctx.getBean("myConfiguration",Properties.class);
+		
+		System.out.println(myProp);
 	}
 
 }

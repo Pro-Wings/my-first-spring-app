@@ -4,16 +4,48 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-<bean name = "std1" class="com.prowings.beans.Student">
+<bean name = "std1" class="com.prowings.beans.Student" >
 	<property name="roll" value="10"> </property>
 	<property name="name" value="Ram"> </property>
-	<property name="address" value="Pune"> </property>
+	<property name="address" > 
+	<ref bean = "addr"/>
+	</property>
+	<property name="subjects">
+	<list>
+		<value>English</value>
+		<value>Java</value>
+		<value>Cloud</value>
+	</list>
+	</property>
+	<property name="mobileNos">
+	<set>
+	<value>1234555</value>
+	<value>45657888</value>
+	<value>078986565</value>
+	<value>1234555</value>
+	</set>
+	</property>
+	
+	<property name="subjectWiseMarks">
+	<map>
+	<entry key="English" value="90"></entry>
+	<entry key="Maths" value="90"></entry>
+	<entry key="Java" value="90"></entry>
+	<entry key="Cloud" value="89"></entry>
+	</map>
+	</property>
+	
 </bean>
 
-<bean name = "std1" class="com.prowings.beans.Student">
-	<property name="roll" value="20"> </property>
-	<property name="name" value="Sham"> </property>
-	<property name="address" value="Mumbai"> </property>
+<bean id="myConfiguration" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+    <property name="location" value="classpath:my.properties"/>
 </bean>
+
+<bean name="addr" class="com.prowings.beans.Address">
+<property name="city" value="Pune"></property>
+<property name="country" value="India"></property>
+<property name="pin" value="1234"></property>
+</bean>
+
 
 </beans>
