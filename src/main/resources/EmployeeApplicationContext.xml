@@ -4,12 +4,10 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-<bean name="emp" class="com.prowings.beans.Employee">
+<bean name="emp" class="com.prowings.beans.Employee" autowire="byType" >
 <constructor-arg name= "dept" value="IT"></constructor-arg>
 <constructor-arg name= "id" value="123"></constructor-arg>
 <constructor-arg name= "name" value="Ram"></constructor-arg>
-<constructor-arg name= "address" ref= "addr"></constructor-arg>
-
 </bean>
 
 
