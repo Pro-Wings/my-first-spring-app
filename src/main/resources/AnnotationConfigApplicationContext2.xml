@@ -8,6 +8,13 @@
  http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<context:annotation-config />
-	<context:component-scan base-package="com.prowings.beans"></context:component-scan>
+	<context:component-scan base-package="com.prowings.beans" >
+	<context:exclude-filter type="annotation" expression="com.prowings.beans.AnimalCatagory.class"/>
+	</context:component-scan>
 
+
+<bean name="animal" class="com.prowings.beans.Animal"></bean>
+
+<bean name="animalcatagory1" class="com.prowings.beans.AnimalCatagory"></bean>
+<bean name="animalcatagory2" class="com.prowings.beans.AnimalCatagory"></bean>
 </beans>

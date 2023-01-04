@@ -10,9 +10,12 @@ public class TestAnnotationConfigContext {
 		
 		ConfigurableApplicationContext ctx = new ClassPathXmlApplicationContext("AnnotationConfigApplicationContext2.xml");
 
-		Animal a1 = ctx.getBean("animal", Animal.class);
+		Animal a1 = ctx.getBean(Animal.class);
 		
+		Engine e = Animal.getEngine();
+		System.out.println(e);
 		System.out.println(a1);
+		
 		
 		ctx.close();
 		

@@ -4,6 +4,7 @@ public class Engine {
 	
 	String type;
 	int capaacity;
+	
 	public String getType() {
 		return type;
 	}

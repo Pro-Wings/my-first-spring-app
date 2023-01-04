@@ -5,14 +5,15 @@ import javax.annotation.PreDestroy;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Animal {
 	@Value("10")
 	int id;
-	
-		AnimalCatagory animalCatagory;
+	@Autowired
+	AnimalCatagory animalCatagory;
 	
 	public Animal() {
 		super();
@@ -21,7 +22,6 @@ public class Animal {
 		// TODO Auto-generated constructor stub
 	}
 	
-	@Autowired
 	public Animal(AnimalCatagory animalCatagory) {
 		super();
 		System.out.println("constructor invoked for animalcatagory!!!");
@@ -66,6 +66,15 @@ public class Animal {
 	public void destroy()
 	{
 		System.out.println("destroy invoked in animal!!");
+	}
+	
+	@Bean
+	public static Engine getEngine() //factory method
+	{
+		Engine e = new Engine();
+		e.setCapaacity(123);
+		e.setType("IC Engine");
+		return e;
 	}
 	
 }
